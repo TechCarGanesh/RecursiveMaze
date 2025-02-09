@@ -21,11 +21,9 @@ def recursive_maze_function(array, row, col):
     # and col == ncols - 1 assuming your array is 0 to nrows - 1 and 0 to ncols - 1.
     if(row == len(array) - 1 and col == len(array[0]) - 1):
         if (array[row][col] == 0):
-            print("Exiting the maze successfully.")
             array[row][col] = 2
             return True
         else:
-            print("Stuck in the maze: row: ", row, "col: ", col)
             return False
 
     # After the base condition check if you are not moving out of the array boundaries.
@@ -64,7 +62,10 @@ def recursive_maze_function(array, row, col):
     # If all steps fail, then return false.
     return False
 
+# Main function
 def main():
+    # maze_array is a 2D array (6x5) and only includes 0's and 1's.
+    # 0 means not blocked while 1 means blocking.
     maze_array = [
         [0, 0, 0, 1, 0],
         [1, 0, 0, 1, 0],
@@ -74,11 +75,17 @@ def main():
         [1, 1, 1, 0, 0],
     ]
 
+    # Print the original array.
     for rows in maze_array:
         print(rows)
+    # Start from row 0 and column 0, which is the start of the maze.
     row = 0
     col = 0
-    recursive_maze_function(maze_array, row, col)
+    # Call recursive_maze_function and pass the parametres: maze_array, row, and col.
+    if recursive_maze_function(maze_array, row, col):
+        print("Successfully exited the maze.")
+    else:
+        print("Stuck in the maze!")
     for rows in maze_array:
         print(rows)
 
