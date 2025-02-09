@@ -60,10 +60,6 @@ def recursive_maze_function(array, row, col):
         # Repeat the step 6 for moving left col = col - 1 keep row same
         if (recursive_maze_function(array, row, col - 1)):
             return True
-    # else:
-    #     # If 4 - 7 fails time to back up and return
-    #     print("Backing up")
-    #     return False
 
     # If all steps fail, then return false.
     return False
